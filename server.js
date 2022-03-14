@@ -27,19 +27,19 @@ app.set("port", port);
 // errorHandler recherche les différentes erreurs et les gère de manière appropriée. Elle est ensuite enregistrée dans le serveur;
 const errorHandler = (error) => {
     if (error.syscall !== "listen") {
-        // Que veut dire cette ligne ???????????????
+
         throw error;
     }
 
     const address = server.address();
-    const bind = typeof address === "string" ? "pipe" + address : "port: " + port; // Que veut dire cette ligne ????????????????
+    const bind = typeof address === "string" ? "pipe" + address : "port: " + port;
     switch (error.code) {
         case "EACCES":
-            console.error(bind + " requires elevated privileges."); // bind + Nécessite des privilèges élevés.
-            process.exit(1); // Que veut dire cette ligne ????????????????
+            console.error(bind + " requires elevated privileges.");
+            process.exit(1);
             break;
         case "EADDRINUSE":
-            console.error(bind + " is already in use."); // bind + est déjà en cours d'utilisation.
+            console.error(bind + " is already in use.");
             process.exit(1);
             break;
         default:
